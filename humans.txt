@@ -3,13 +3,13 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Jorge Moreno -- Web Design / Development -- @alterebro
 
 # THANKS
 
-    <name>
+	to all mankind...
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    jQuery, Modernizr
+    HTML5, CSS3, JavaScript
+	PhoneGap, GIT
