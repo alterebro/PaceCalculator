@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>...</title>
+	<meta name="description" content="..." />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="cleartype" content="on" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png" />
+	<link rel="shortcut icon" href="img/touch/apple-touch-icon.png" />
+	<meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png" />
+	<meta name="msapplication-TileColor" content="#222222" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:400,700" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+<header role="banner">
+	<h1>Pace Calculator</h1>
+	<h2>Calculate your running pace per mile or kilometer</h2>
+	<p>
+		Plan your race pace and splits, figure out how far you ran based on your estimated pace, 
+		or calculate the pace of your last training run. To calculate your time, distance or pace, 
+		fill the other two input fields and click the related button to get your data.
+	</p>
+</header>
+<section role="main">
+	<form>
+		<div>
+			<dl>
+				<dt><i class="icon-time"></i> <strong>Time</strong></dt>
+				<dd>
+					<span>
+						<label for="thr">Hours</label> 
+						<input type="number" name="thr" size="2" maxlength="2" placeholder="Hours" min="0" max="99" />
+					</span>
+					<span>
+						<label for="tmin">Mins</label>
+						<input type="number" name="tmin" size="2" maxlength="2" placeholder="Mins" min="0" max="59" />
+					</span>
+					<span>
+						<label for="tsec">Secs</label>
+						<input type="number" name="tsec" size="5" maxlength="6" placeholder="Secs" min="0" max="59" />
+					</span>
+				</dd>
+				<dd>
+					<p>To calculate your time, fill in your distance and pace then click here</p>
+					<input type="button" class="pulldown" onclick="var myform = document.forms[0]; CalcTime(myform)" value="Calculate Time" />
+				</dd>
+
+				<dt><i class="icon-road"></i> <strong>Distance</strong></dt>
+				<dd>
+					<div>
+						<span class="double-w">
+							<label for="dist">Distance</label>
+							<input type="text" name="dist" size="7" maxlength="8" /> 
+						</span>
+						<span>
+							<label for="dunit">Unit</label>
+							<select name="dunit">
+								<option value="Mile" selected="">Miles</option>
+								<option value="Kilometer">Kilometers</option>
+								<option value="Meter">Meters</option>
+								<option value="Yard">Yards</option>
+							</select>
+						</span>
+					</div>
+					<div class="separator-or"> &mdash; or &mdash; </div>
+					<div>
+						<select name="event" onchange="setDunit(document.forms[0])" class="triple-w">
+							<option value="special">Pick Event</option>
+							<option value="Marathon">Marathon</option>
+							<option value="Half-Marathon">Half-Marathon</option>
+							<option value="5K">5K</option>
+							<option value="5M">5M</option>
+							<option value="8K">8K</option>
+							<option value="10K">10K</option>
+							<option value="15K">15K</option>
+							<option value="10M">10M</option>
+							<option value="20K">20K</option>
+							<option value="15M">15M</option>
+							<option value="25K">25K</option>
+							<option value="30K">30K</option>
+							<option value="20M">20M</option>
+						</select>
+					</div>
+				</dd>
+				<dd>
+					<p>To calculate your distance, fill in your time and pace then click here</p>
+					<input type="button" class="pulldown" onclick="var myform = document.forms[0]; CalcDist(myform)" value="Calculate Distance" />
+				</dd>
+
+				<dt><i class="icon-bolt"></i> <strong>Pace</strong></dt>
+				<dd>
+					<span class="hidden">
+						<label for="phr">Hours</label>
+						<input type="number" name="phr" size="2" maxlength="2" placeholder="Hours" />
+					</span>					
+					<span>					
+						<label for="pmin">Mins</label>
+						<input type="number" name="pmin" size="2" maxlength="2" placeholder="Mins" />
+					</span>										
+					<span>
+						<label for="psec">Secs</label>
+						<input type="number" name="psec" size="5" maxlength="6" placeholder="Secs" />
+					</span>	
+					<span>
+						<label for="punit">/ Per</label>
+						<select name="punit" size="1" class="pulldown">
+							<option value="Mile" selected="">Mile</option>
+							<option value="Kilometer">Kilometer</option>
+							<option value="Half Mile">880 yrds</option>
+							<option value="Quarter Mile">440 yrds</option>
+							<option value="Eigth Mile">220 yrds</option>
+							<option value="1500M">1500 M</option>
+							<option value="800M">800 M</option>
+							<option value="400M">400 M</option>
+							<option value="200M">200 M</option>
+							<option value="Meter">Meter</option>
+							<option value="Yard">Yard</option>
+						</select>
+					</span>					
+				</dd>
+				<dd>
+					<p>To calculate your pace, fill in your time and distance then click here</p>
+					<input type="button" class="pulldown" onclick="myform = document.forms[0]; CalcPace(myform)" value="Calculate Pace" />
+				</dd>
+			</dl>
+		</div>
+		<footer>
+			<input type="button" onclick="var myform = document.forms[0]; CalcSplits(myform)" value="Calculate Splits" /> 
+			<input type="button" value="Reset" onclick="document.forms[0].reset()" />
+		</footer>
+	</form>
+</section>
+<footer role="contentinfo">
+	<hr />
+	<p>&copy; Copyleft 2013 <strong><a href="https://twitter.com/alterebro">@alterebro</a></strong></p>
+</footer>
+
+
+<script src="js/zepto.min.js"></script>
+<script src="js/helper.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<!-- 
+<script>
+	var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+	g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+	s.parentNode.insertBefore(g,s)}(document,"script"));
+</script>
+-->
+</body>
+</html>

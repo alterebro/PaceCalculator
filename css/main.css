@@ -1,0 +1,476 @@
+/* Devices */
+/* Vars */
+/* Colors */
+/* Mixins */
+/* ========================================================================== */
+
+/* Pseudo-reset */
+
+html,
+body,
+h1,
+h2,
+h3,
+ul,
+li,
+dl,
+dt,
+dd,
+p,
+input {
+  margin: 0;
+  padding: 0;
+}
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0);
+  -webkit-touch-callout: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+hr {
+  display: none;
+}
+/* Global */
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Open Sans', helvetica, arial, sans-serif;
+  font-size: 12px;
+  color: #222222;
+}
+@media only screen and (max-width: 479px) {
+  html,
+  body,
+  button,
+  input,
+  select,
+  textarea {
+    font-size: 11px;
+  }
+}
+html {
+  background: #222222 url(../img/images/track-bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+  border-top: solid black 5px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #111111;
+  margin: 0 auto;
+  line-height: 1.4;
+  -webkit-box-shadow: 0px 0px 0 1px rgba(0, 0, 0, 0.25), 0px 0px 0 2px rgba(255, 255, 255, 0.25), 0px 0px 10px 0 rgba(0, 0, 0, 0.5), 0px 0px 25px 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 0 1px rgba(0, 0, 0, 0.25), 0px 0px 0 2px rgba(255, 255, 255, 0.25), 0px 0px 10px 0 rgba(0, 0, 0, 0.5), 0px 0px 25px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 0 1px rgba(0, 0, 0, 0.25), 0px 0px 0 2px rgba(255, 255, 255, 0.25), 0px 0px 10px 0 rgba(0, 0, 0, 0.5), 0px 0px 25px 5px rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+  width: 420px;
+  padding: 25px;
+}
+@media only screen and (max-width: 479px) {
+  body {
+    width: 260px;
+    padding: 20px;
+  }
+}
+a {
+  color: #777777;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+}
+img {
+  vertical-align: middle;
+}
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+textarea {
+  resize: vertical;
+}
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+header[role="banner"] {
+  padding: 0 0 20px 0;
+}
+h1 {
+  font-family: 'Open Sans Condensed', helvetica, arial, sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+@media only screen and (max-width: 479px) {
+  h1 {
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0;
+    margin: 0 0 5px 0;
+  }
+}
+h2 {
+  font-family: 'Open Sans Condensed', helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0 0 10px 0;
+}
+@media only screen and (max-width: 479px) {
+  h2 {
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+}
+input[type="number"],
+input[type="text"],
+select {
+  width: 70px;
+  height: 35px;
+  margin: 0;
+  padding: 5px;
+  border: solid black 2px;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+@media only screen and (max-width: 479px) {
+  input[type="number"],
+  input[type="text"],
+  select {
+    width: 40px;
+  }
+}
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus {
+  border: solid #990000 2px;
+  outline: none;
+}
+input[type="button"] {
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+  display: block;
+  height: 35px;
+  border: none;
+  background: black;
+  color: #eeeeee;
+  font-family: 'Open Sans Condensed', helvetica, arial, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+form div dl dt {
+  clear: both;
+  border-top: solid rgba(0, 0, 0, 0.5) 1px;
+  -webkit-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  padding: 20px 0 0 0;
+}
+form div dl dt strong {
+  font-family: 'Open Sans Condensed', helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+@media only screen and (max-width: 479px) {
+  form div dl dt strong {
+    font-size: 24px;
+  }
+}
+form div dl dt [class^="icon-"],
+form div dl dt [class*=" icon-"] {
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+  display: block;
+  float: left;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 5px 0 0;
+}
+form div dl dd {
+  margin: 0;
+  overflow: auto;
+  padding: 0 0 25px 0;
+  float: left;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+}
+form div dl dd:nth-child(3n+2) {
+  float: left;
+  width: 225px;
+}
+@media only screen and (max-width: 479px) {
+  form div dl dd:nth-child(3n+2) {
+    width: 135px;
+  }
+}
+form div dl dd:nth-child(3n+3) p {
+  display: none;
+}
+form div dl dd:nth-child(3n+3) input {
+  display: block;
+  margin: 20px 0 0 0;
+  width: 145px;
+}
+@media only screen and (max-width: 479px) {
+  form div dl dd:nth-child(3n+3) input {
+    width: 85px;
+    font-size: 9px;
+  }
+}
+form div dl dd div {
+  clear: both;
+}
+form div dl dd span {
+  display: block;
+  float: left;
+  width: 75px;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+}
+@media only screen and (max-width: 479px) {
+  form div dl dd span {
+    width: 45px;
+  }
+}
+form div dl dd span.double-w {
+  width: 150px;
+}
+@media only screen and (max-width: 479px) {
+  form div dl dd span.double-w {
+    width: 90px;
+  }
+}
+form div dl dd span.double-w input {
+  width: 145px;
+}
+@media only screen and (max-width: 479px) {
+  form div dl dd span.double-w input {
+    width: 85px;
+  }
+}
+form div dl dd select.triple-w {
+  width: 220px;
+}
+@media only screen and (max-width: 479px) {
+  form div dl dd select.triple-w {
+    width: 130px;
+  }
+}
+form div dl dd span label {
+  display: block;
+  font-size: 10px;
+  line-height: 10px;
+  padding: 5px 0;
+}
+form div dl dd span input {
+  display: block;
+}
+div.separator-or {
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+  width: 220px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2px;
+  line-height: 15px;
+  padding: 5px 0;
+}
+@media only screen and (max-width: 479px) {
+  div.separator-or {
+    width: 130px;
+  }
+}
+form footer {
+  clear: both;
+  overflow: auto;
+  border-bottom: solid rgba(0, 0, 0, 0.5) 1px;
+  border-top: solid rgba(0, 0, 0, 0.5) 1px;
+  padding: 25px 0;
+  -webkit-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5), 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5), 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5), 0 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+form footer input {
+  width: 145px;
+  float: right;
+}
+@media only screen and (max-width: 479px) {
+  form footer input {
+    width: 85px;
+  }
+}
+form footer input:first-child {
+  width: 220px;
+  float: left;
+}
+@media only screen and (max-width: 479px) {
+  form footer input:first-child {
+    width: 130px;
+  }
+}
+footer[role="contentinfo"] {
+  text-align: center;
+  padding: 20px 0 10px 0;
+  font-size: 10px;
+}
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/* Prevent callout */
+
+.nocallout {
+  -webkit-touch-callout: none;
+}
+.pressed {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+/* A hack for HTML5 contenteditable attribute on mobile */
+
+textarea[contenteditable] {
+  -webkit-appearance: none;
+}
+/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if
+   they have been set as display: none */
+
+.gifhidden {
+  position: absolute;
+  left: -100%;
+}
+/*
+ * Image replacement
+ */
+
+.ir {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 0;
+  direction: ltr;
+  display: block;
+  overflow: hidden;
+  text-align: left;
+  text-indent: -999em;
+}
+.ir br {
+  display: none;
+}
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+/**
+ * Clearfix helper
+ * Used to contain floats: h5bp.com/q
+ */
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+  *zoom: 1;
+}
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   Theses examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 800px) {
+  /* Style adjustments for viewports that meet the condition */
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
+  /* Style adjustments for viewports that meet the condition */
+}
