@@ -126,58 +126,65 @@ function convUnit (funit, tunit ){
 }
 
 function CalcSplits(form){
-// Main routine for Splits
-// Validate required data, do computation, and display results
-// Splits = Time at each interval (Dist / Pace)
+	// Main routine for Splits
+	// Validate required data, do computation, and display results
+	// Splits = Time at each interval (Dist / Pace)
+
 	var gottime = CheckPace(form)
 	var gotpace = CheckTime(form)
-	if (!(gottime || gotpace)){
+
+	if ( !(gottime || gotpace) ) {
+
 		showError("To calculate Splits, enter the Pace and Distance or Time and Distance");
-	}else{
+		$('#splits').hide();
+
+	} else {
+
 		hideError();
-	// get dist, pace, and punit
-	// time in total seconds, pace in total seconds
-		if (!(gotpace) && (gottime)){
-		    punit = form.punit.options[form.punit.selectedIndex].value
-		    dunit = form.dunit.options[form.dunit.selectedIndex].value
-		    var factor = convUnit(dunit, punit)
-		    pace = (time / dist) / factor
+
+		// get dist, pace, and punit
+		// time in total seconds, pace in total seconds
+		if ( !(gotpace) && (gottime) ){
+		    punit = form.punit.options[form.punit.selectedIndex].value;
+		    dunit = form.dunit.options[form.dunit.selectedIndex].value;
+		    var factor = convUnit(dunit, punit);
+		    pace = (time / dist) / factor;
 		}
-		var dcalc = form.dunit.options[form.dunit.selectedIndex].value
-		var pcalc = form.punit.options[form.punit.selectedIndex].value
-		var factor = convUnit(dcalc, pcalc)
-		var pdisp = form.punit.options[form.punit.selectedIndex].text
-		dist = dist * factor
-		var remain = dist % 1
-		nsplits = dist - remain
-		// compute hgt based on number of splits
-		var hgt = nsplits  * shgt
-		hgt = hgt.toString(10)
-		var features = "resizable,scrollbars,height=" + hgt + ",width=250,"
-		swin = window.open("","",features)
-		swin.document.writeln("<HTML><HEAD><TITLE>Splits</TITLE><HEAD><BODY>\n")
-		swin.document.writeln("<table cellspacing=2><tr><td colspan=2 align=left>Splits</td><td>Times</td></tr>\n")
-		var stime = 0
-		for (var split = 1;  split <= nsplits; split++){
-			stime = stime + pace
-			var shours = HrsFromTSecs(stime)
-			var smins = MinsFromTSecs(stime)
-			var ssecs = SecsFromTSecs(stime)
-			var hmstime = shours  + ":" + smins + ":" + ssecs.substring(0,5)
-			swin.document.writeln("<tr><td>" + split + "</td><td>" + pdisp + "</td><td>" +hmstime + "</td></tr>\n")
-		}
-		if (nsplits  != dist){ // the last split is for the total dist
-			var extrasecs = remain * pace
-			stime = stime + extrasecs
-			var shours = HrsFromTSecs(stime)
-			var smins = MinsFromTSecs(stime)
-			var ssecs = SecsFromTSecs(stime)
-			var hmstime = shours  + ":" + smins + ":" + ssecs.substring(0,5)
-			swin.document.writeln("<tr><td>" + dist + "</td><td>" + pdisp + "</td><td>" +hmstime + "</td></tr>\n")
-		}
-		swin.document.writeln("</table></BODY></HTML>\n")
-	} // end of else
+		var dcalc = form.dunit.options[form.dunit.selectedIndex].value;
+		var pcalc = form.punit.options[form.punit.selectedIndex].value;
+		var factor = convUnit(dcalc, pcalc);
+		var pdisp = form.punit.options[form.punit.selectedIndex].text;
+		dist = dist * factor;
+		var remain = dist % 1;
+		nsplits = dist - remain;
+
+		var splits_output = '<table cellspacing="2"><thead><tr><th colspan="2">Splits</th><th class="split-time">Times</th></tr></thead><tbody>';
+		var stime = 0;
+			for (var split = 1;  split <= nsplits; split++) {
+				stime = stime + pace;
+				var shours = HrsFromTSecs(stime);
+				var smins = MinsFromTSecs(stime);
+				var ssecs = SecsFromTSecs(stime);
+				var hmstime = shours  + ":" + smins + ":" + ssecs.substring(0,5);
+				splits_output += "<tr><td>" + split + "</td><td>" + pdisp + '</td><td class="split-time">' +hmstime + "</td></tr>";
+			}
+			if ( nsplits != dist ) { 
+				// the last split is for the total dist
+				var extrasecs = remain * pace;
+				stime = stime + extrasecs;
+				var shours = HrsFromTSecs(stime);
+				var smins = MinsFromTSecs(stime);
+				var ssecs = SecsFromTSecs(stime);
+				var hmstime = shours  + ":" + smins + ":" + ssecs.substring(0,5);
+				splits_output += "<tr><td>" + dist + "</td><td>" + pdisp + '</td><td class="split-time">' +hmstime + "</td></tr>";
+			}
+		splits_output += "</tbody></table>";
+		
+		$('#splits').show();
+		$('#splits').html(splits_output);
+	}
 }
+
 
 function CheckTime(form){
 // Makes sure that both the Dist and Pace data needed to calc Time are valid
