@@ -59,6 +59,16 @@ textarea {
     font-size: 11px;
   }
 }
+@media only screen and (min-width: 769px) {
+  html,
+  body,
+  button,
+  input,
+  select,
+  textarea {
+    font-size: 13px;
+  }
+}
 html {
   background: #222222 url(../img/images/track-bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -88,6 +98,12 @@ body {
     padding: 20px;
   }
 }
+@media only screen and (min-width: 769px) {
+  body {
+    width: 680px;
+    padding: 30px;
+  }
+}
 a {
   color: #777777;
   text-decoration: none;
@@ -112,6 +128,10 @@ textarea {
 
 header[role="banner"] {
   padding: 0 0 20px 0;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
 }
 h1 {
   font-family: 'Open Sans Condensed', helvetica, arial, sans-serif;
@@ -129,6 +149,11 @@ h1 {
     margin: 0 0 5px 0;
   }
 }
+@media only screen and (min-width: 769px) {
+  h1 {
+    text-align: center;
+  }
+}
 h2 {
   font-family: 'Open Sans Condensed', helvetica, arial, sans-serif;
   font-weight: 400;
@@ -144,11 +169,16 @@ h2 {
     letter-spacing: 2px;
   }
 }
+@media only screen and (min-width: 769px) {
+  h2 {
+    text-align: center;
+  }
+}
 input[type="number"],
 input[type="text"],
 select {
   width: 70px;
-  height: 35px;
+  height: 40px;
   margin: 0;
   padding: 5px;
   border: solid black 2px;
@@ -168,6 +198,14 @@ select {
   input[type="text"],
   select {
     width: 40px;
+    height: 35px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  input[type="number"],
+  input[type="text"],
+  select {
+    width: 120px;
   }
 }
 input[type="number"]:focus,
@@ -183,13 +221,19 @@ input[type="reset"] {
   -ms-transition: all 0.35s ease-in-out;
   -o-transition: all 0.35s ease-in-out;
   display: block;
-  height: 35px;
+  height: 40px;
   border: none;
   background: black;
   color: #eeeeee;
   font-family: 'Open Sans Condensed', helvetica, arial, sans-serif;
   font-weight: 400;
   text-transform: uppercase;
+}
+@media only screen and (max-width: 479px) {
+  input[type="button"],
+  input[type="reset"] {
+    height: 35px;
+  }
 }
 form div dl dt {
   clear: both;
@@ -210,6 +254,11 @@ form div dl dt strong {
 @media only screen and (max-width: 479px) {
   form div dl dt strong {
     font-size: 24px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  form div dl dt strong {
+    font-size: 26px;
   }
 }
 form div dl dt [class^="icon-"],
@@ -243,6 +292,11 @@ form div dl dd:nth-child(3n+2) {
     width: 135px;
   }
 }
+@media only screen and (min-width: 769px) {
+  form div dl dd:nth-child(3n+2) {
+    width: 375px;
+  }
+}
 form div dl dd:nth-child(3n+3) p {
   display: none;
 }
@@ -255,6 +309,11 @@ form div dl dd:nth-child(3n+3) input {
   form div dl dd:nth-child(3n+3) input {
     width: 85px;
     font-size: 9px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  form div dl dd:nth-child(3n+3) input {
+    width: 245px;
   }
 }
 form div dl dd div {
@@ -274,12 +333,22 @@ form div dl dd span {
     width: 45px;
   }
 }
+@media only screen and (min-width: 769px) {
+  form div dl dd span {
+    width: 125px;
+  }
+}
 form div dl dd span.double-w {
   width: 150px;
 }
 @media only screen and (max-width: 479px) {
   form div dl dd span.double-w {
     width: 90px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  form div dl dd span.double-w {
+    width: 250px;
   }
 }
 form div dl dd span.double-w input {
@@ -290,12 +359,22 @@ form div dl dd span.double-w input {
     width: 85px;
   }
 }
+@media only screen and (min-width: 769px) {
+  form div dl dd span.double-w input {
+    width: 245px;
+  }
+}
 form div dl dd select.triple-w {
   width: 220px;
 }
 @media only screen and (max-width: 479px) {
   form div dl dd select.triple-w {
     width: 130px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  form div dl dd select.triple-w {
+    width: 370px;
   }
 }
 form div dl dd span label {
@@ -325,6 +404,11 @@ div.separator-or {
     width: 130px;
   }
 }
+@media only screen and (min-width: 769px) {
+  div.separator-or {
+    width: 370px;
+  }
+}
 form footer {
   clear: both;
   overflow: auto;
@@ -344,6 +428,11 @@ form footer input {
     width: 85px;
   }
 }
+@media only screen and (min-width: 769px) {
+  form footer input {
+    width: 245px;
+  }
+}
 form footer input:first-child {
   width: 220px;
   float: left;
@@ -351,6 +440,11 @@ form footer input:first-child {
 @media only screen and (max-width: 479px) {
   form footer input:first-child {
     width: 130px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  form footer input:first-child {
+    width: 370px;
   }
 }
 footer[role="contentinfo"] {

@@ -8,8 +8,9 @@
 @column-width-medium: 70px;
 @column-width-big: 120px;
 @margin-width: 5px;
-@wrapper-padding-medium: 25px;
 @wrapper-padding-small: 20px;
+@wrapper-padding-medium: 25px;
+@wrapper-padding-big: 30px;
 
 /* Colors */
 
@@ -66,9 +67,11 @@ html, body, button, input, select, textarea {
 	font-size: 12px;
 	color: #222;
 
-
 	@media @mobile {
 		font-size: 11px;
+	}
+	@media @desktop {
+		font-size: 13px;
 	}
 }
 html {
@@ -102,6 +105,10 @@ body {
 		width: ((@column-width-small*5) + (@margin-width*4) + (@wrapper-padding-small*2));
 		padding: @wrapper-padding-small;
 	}
+	@media @desktop {
+		width: ((@column-width-big*5) + (@margin-width*4) + (@wrapper-padding-big*2));
+		padding: @wrapper-padding-big;
+	}
 
 }
 a {
@@ -128,6 +135,7 @@ textarea {
    ========================================================================== */
 header[role="banner"] {
 	padding: 0 0 20px 0;
+	.transition;
 }
 h1 {
 	font-family: 'Open Sans Condensed', helvetica, arial, sans-serif;
@@ -143,6 +151,10 @@ h1 {
 		letter-spacing: 0;
 		margin: 0 0 5px 0;
 	}
+	@media @desktop {
+		text-align: center;
+	}
+
 }
 h2 {
 	font-family: 'Open Sans Condensed', helvetica, arial, sans-serif;
@@ -157,13 +169,16 @@ h2 {
 		text-align: center;
 		letter-spacing: 2px;
 	}
+	@media @desktop {
+		text-align: center;
+	}
 }
 
 input[type="number"],
 input[type="text"],
 select {
 	width: @column-width-medium;
-	height: 35px;
+	height: 40px;
 	margin: 0;
 	padding: 5px;
 	border: solid #000 2px;
@@ -172,6 +187,10 @@ select {
 
 	@media @mobile {
 		width: @column-width-small;
+		height: 35px;
+	}
+	@media @desktop {
+		width: @column-width-big;
 	}
 }
 input[type="number"]:focus,
@@ -184,13 +203,16 @@ input[type="button"],
 input[type="reset"] {
 	.transition;
 	display: block;
-	height: 35px;
+	height: 40px;
 	border: none;
 	background: #000;
 	color: #eee;	
 	font-family: 'Open Sans Condensed', helvetica, arial, sans-serif;
 	font-weight: 400;
 	text-transform: uppercase;
+	@media @mobile {
+		height: 35px;
+	}
 }
 
 
@@ -211,6 +233,9 @@ form div dl dt strong {
 
 	@media @mobile {
 		font-size: 24px;
+	}
+	@media @desktop {
+		font-size: 26px;
 	}
 
 }
@@ -242,6 +267,9 @@ form div dl dd:nth-child(3n+2) {
 	@media @mobile {
 		width: ((@column-width-small*3) + (@margin-width*3));
 	}
+	@media @desktop {
+		width: ((@column-width-big*3) + (@margin-width*3));
+	}
 
 }
 form div dl dd:nth-child(3n+3) {}
@@ -258,6 +286,9 @@ form div dl dd:nth-child(3n+3) input {
 		width: ((@column-width-small*2) + @margin-width);
 		font-size: 9px;
 	}
+	@media @desktop {
+		width: ((@column-width-big*2) + @margin-width);
+	}
 }
 
 
@@ -273,12 +304,18 @@ form div dl dd span {
 	@media @mobile {
 		width: (@column-width-small + @margin-width);
 	}
+	@media @desktop {
+		width: (@column-width-big + @margin-width);
+	}
 }
 form div dl dd span.double-w {
 //	width: 150px;
 	width: ((@column-width-medium*2) + (@margin-width*2));
 	@media @mobile {
 		width: ((@column-width-small*2) + (@margin-width*2));
+	}
+	@media @desktop {
+		width: ((@column-width-big*2) + (@margin-width*2));
 	}
 }
 form div dl dd span.double-w input {
@@ -287,12 +324,18 @@ form div dl dd span.double-w input {
 	@media @mobile {
 		width: ((@column-width-small*2) + @margin-width);
 	}
+	@media @desktop {
+		width: ((@column-width-big*2) + @margin-width);
+	}
 }
 form div dl dd select.triple-w {
 //	width: 220px;
 	width: ((@column-width-medium*3) + (@margin-width*2));
 	@media @mobile {
 		width: ((@column-width-small*3) + (@margin-width*2));
+	}
+	@media @desktop {
+		width: ((@column-width-big*3) + (@margin-width*2));
 	}
 }
 form div dl dd span label {
@@ -310,6 +353,9 @@ div.separator-or {
 	width: ((@column-width-medium*3) + (@margin-width*2));
 	@media @mobile {
 		width: ((@column-width-small*3) + (@margin-width*2));
+	}
+	@media @desktop {
+		width: ((@column-width-big*3) + (@margin-width*2));
 	}
 	text-align: center;
 	text-transform: uppercase;
@@ -339,6 +385,9 @@ form footer input {
 	@media @mobile {
 		width: ((@column-width-small*2) + @margin-width);
 	}
+	@media @desktop {
+		width: ((@column-width-big*2) + @margin-width);
+	}
 	float: right;
 }
 form footer input:first-child {
@@ -346,6 +395,9 @@ form footer input:first-child {
 	width: ((@column-width-medium*3) + (@margin-width*2));
 	@media @mobile {
 		width: ((@column-width-small*3) + (@margin-width*2));
+	}
+	@media @desktop {
+		width: ((@column-width-big*3) + (@margin-width*2));
 	}
 	float: left;
 }

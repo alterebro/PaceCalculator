@@ -185,36 +185,18 @@ function CalcSplits(form){
 	}
 }
 
-
-function CheckTime(form){
-// Makes sure that both the Dist and Pace data needed to calc Time are valid
-	if((getDist(form)) && (getPace(form))){
-		return true
-	}else{
-		return false
-	}
+function CheckTime(form) { // Makes sure that both the Dist and Pace data needed to calc Time are valid
+	return ( getDist(form) && getPace(form) );
+}
+function CheckDist(form) { // Makes sure that both the Time and Pace data needed to calc Dist are valid
+	return ( getTime(form) && getPace(form) );
+}
+function CheckPace(form) { // Makes sure that both the Dist and Time data needed to calc Pace are valid
+	return ( getTime(form) && getDist(form) );
 }
 
-function CheckDist(form){
-// Makes sure that both the Time and Pace data needed to calc Dist are valid
-	if(getTime(form) && getPace(form)){
-		return true
-	}else{
-		return false
-	}
-}
-
-function CheckPace(form){
-// Makes sure that both the Dist and Time data needed to calc Pace are valid
-	if((getTime(form)) && (getDist(form))){
-		return true
-	}else{
-		return false
-	}
-}
-
-function getTime(form){
-// set global time var to total secs and return true if input valid
+function getTime(form) {
+	// set global time var to total secs and return true if input valid
 	thour = form.thr.value
 	if (thour == "") {thour = "0"} // substitute 0 for null components
 	if (!(isPosNum(thour))){return false}
@@ -233,17 +215,17 @@ function getTime(form){
 return true
 }
 
-function getDist(form){
-// set global dist var to a number and return true if input valid
+function getDist(form) {
+	// set global dist var to a number and return true if input valid
 	dist = document.forms[0].dist.value
 	if (!(isPosNum(dist))) {return false}
 	dist = StripZeroes(dist)
 	dist = parseFloat(dist, 10)
-return true
+	return true
 }
 
 function getPace(form){
-// set global pace var to total secs and return true	if input valid
+	// set global pace var to total secs and return true	if input valid
 	phr = form.phr.value
 	if (phr == "") {phr = "0"} // substitute 0 for null components
 	if (!(isPosNum(phr))) {return false}
@@ -259,32 +241,33 @@ function getPace(form){
 	pace = toSecs(phr, pmin, psec)
 	pace = parseFloat(pace, 10)
 	if (pace == 0) return false
-return true
+	return true
 }
 
-function toSecs(hr, min, sec){
-// Convert each component to a number (remove leading 0) and sum them
-	var hour = parseFloat(hr, 10)
-	var minute = parseFloat(min, 10)
-	var second = parseFloat(sec, 10)
-	var hsecs = parseFloat(hour * 3600)
-	var msecs = parseFloat(minute * 60)
-	var total = hsecs + msecs + second
-return total
+function toSecs(hr, min, sec) {
+	// Convert each component to a number (remove leading 0) and sum them
+		var hour = parseFloat(hr, 10)
+		var minute = parseFloat(min, 10)
+		var second = parseFloat(sec, 10)
+		var hsecs = parseFloat(hour * 3600)
+		var msecs = parseFloat(minute * 60)
+		var total = hsecs + msecs + second
+
+	return total
 }
 
-function HrsFromTSecs(totsecs){
-// Gets hr component for hr:min:sec string
+function HrsFromTSecs(totsecs) {
+	// Gets hr component for hr:min:sec string
 	var hrs // hr component as string
 	var flthrs = totsecs / 3600
 	hrs = Math.floor(flthrs) //get next int less or equal
 	hrs = hrs.toString(10)
-	if (hrs.length == 1) {hrs = "0" + hrs}
-return hrs
+	if (hrs.length == 1) { hrs = "0" + hrs }
+	return hrs
 }
 
-function MinsFromTSecs(totsecs){
-// Gets min component for  hr:min:sec string
+function MinsFromTSecs(totsecs) {
+	// Gets min component for  hr:min:sec string
 	var mins // hr component as string
 	var hrs = HrsFromTSecs(totsecs)
 	var nsecs = hrs * 3600
@@ -293,18 +276,20 @@ function MinsFromTSecs(totsecs){
 	mins = Math.floor(fltmin) //conv to integer
 	mins = mins.toString(10)
 	if (mins.length == 1) {mins = "0" + mins}
-return mins
+	return mins
 }
 
-function SecsFromTSecs(totsecs){
-// Converts total seconds number to hr:min:sec string
-// secs is only component that may have a decimal value
+function SecsFromTSecs(totsecs) {
+	// Converts total seconds number to hr:min:sec string
+	// secs is only component that may have a decimal value
+
 	var secs // hr component as string
 	secs = totsecs - (HrsFromTSecs(totsecs) * 3600) - (MinsFromTSecs(totsecs) * 60)
 	secs = secs.toString(10)
 	if (secs.length == 1) {
 		secs = "0" + secs
-	}else{ // check for a decimal point
+	} else { 
+		// check for a decimal point
 		for (var i = 0; i < secs.length; i++){
 				tchar = secs.charAt(i)
 			if (i == 1 && tchar == "."){
@@ -313,7 +298,7 @@ function SecsFromTSecs(totsecs){
 			}
 		}
 	}
-return secs
+	return secs
 }
 
 function StripZeroes(number){
