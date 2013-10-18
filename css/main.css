@@ -150,9 +150,7 @@ h1 {
   }
 }
 @media only screen and (min-width: 769px) {
-  h1 {
-    text-align: center;
-  }
+  
 }
 h2 {
   font-family: 'Open Sans Condensed', helvetica, arial, sans-serif;
@@ -170,9 +168,7 @@ h2 {
   }
 }
 @media only screen and (min-width: 769px) {
-  h2 {
-    text-align: center;
-  }
+  
 }
 input[type="number"],
 input[type="text"],
