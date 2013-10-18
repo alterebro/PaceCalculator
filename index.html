@@ -15,9 +15,9 @@
 	<link rel="shortcut icon" href="img/touch/apple-touch-icon.png" />
 	<meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png" />
 	<meta name="msapplication-TileColor" content="#222222" />
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" />
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:400,700" />
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="css/normalize.css" />
 	<link rel="stylesheet" href="css/main.css" />
 </head>
@@ -33,27 +33,28 @@
 	</p>
 </header>
 <section role="main">
-	<form>
+	<div id="error"></div>
+	<form id="pace-calculator">
 		<div>
 			<dl>
 				<dt><i class="icon-time"></i> <strong>Time</strong></dt>
 				<dd>
 					<span>
 						<label for="thr">Hours</label> 
-						<input type="number" name="thr" size="2" maxlength="2" placeholder="Hours" min="0" max="99" />
+						<input type="number" name="thr" maxlength="2" placeholder="Hours" min="0" max="99" />
 					</span>
 					<span>
 						<label for="tmin">Mins</label>
-						<input type="number" name="tmin" size="2" maxlength="2" placeholder="Mins" min="0" max="59" />
+						<input type="number" name="tmin" maxlength="2" placeholder="Mins" min="0" max="59" />
 					</span>
 					<span>
 						<label for="tsec">Secs</label>
-						<input type="number" name="tsec" size="5" maxlength="6" placeholder="Secs" min="0" max="59" />
+						<input type="number" name="tsec" maxlength="6" placeholder="Secs" min="0" max="59" />
 					</span>
 				</dd>
 				<dd>
 					<p>To calculate your time, fill in your distance and pace then click here</p>
-					<input type="button" class="pulldown" onclick="var myform = document.forms[0]; CalcTime(myform)" value="Calculate Time" />
+					<input type="button" id="calculate-time" value="Calculate Time" />
 				</dd>
 
 				<dt><i class="icon-road"></i> <strong>Distance</strong></dt>
@@ -61,13 +62,13 @@
 					<div>
 						<span class="double-w">
 							<label for="dist">Distance</label>
-							<input type="text" name="dist" size="7" maxlength="8" /> 
+							<input type="text" name="dist" maxlength="8" /> 
 						</span>
 						<span>
 							<label for="dunit">Unit</label>
 							<select name="dunit">
-								<option value="Mile" selected="">Miles</option>
-								<option value="Kilometer">Kilometers</option>
+								<option value="Mile">Miles</option>
+								<option value="Kilometer" selected="selected">Kilometers</option>
 								<option value="Meter">Meters</option>
 								<option value="Yard">Yards</option>
 							</select>
@@ -75,7 +76,7 @@
 					</div>
 					<div class="separator-or"> &mdash; or &mdash; </div>
 					<div>
-						<select name="event" onchange="setDunit(document.forms[0])" class="triple-w">
+						<select name="event" id="event-select" class="triple-w">
 							<option value="special">Pick Event</option>
 							<option value="Marathon">Marathon</option>
 							<option value="Half-Marathon">Half-Marathon</option>
@@ -95,26 +96,26 @@
 				</dd>
 				<dd>
 					<p>To calculate your distance, fill in your time and pace then click here</p>
-					<input type="button" class="pulldown" onclick="var myform = document.forms[0]; CalcDist(myform)" value="Calculate Distance" />
+					<input type="button" id="calculate-distance" value="Calculate Distance" />
 				</dd>
 
 				<dt><i class="icon-bolt"></i> <strong>Pace</strong></dt>
 				<dd>
 					<span class="hidden">
 						<label for="phr">Hours</label>
-						<input type="number" name="phr" size="2" maxlength="2" placeholder="Hours" />
+						<input type="number" name="phr" maxlength="2" placeholder="Hours" min="0" max="99" />
 					</span>					
 					<span>					
 						<label for="pmin">Mins</label>
-						<input type="number" name="pmin" size="2" maxlength="2" placeholder="Mins" />
+						<input type="number" name="pmin" maxlength="2" placeholder="Mins" min="0" max="59"  />
 					</span>										
 					<span>
 						<label for="psec">Secs</label>
-						<input type="number" name="psec" size="5" maxlength="6" placeholder="Secs" />
+						<input type="number" name="psec" maxlength="6" placeholder="Secs" min="0" max="60"  />
 					</span>	
 					<span>
 						<label for="punit">/ Per</label>
-						<select name="punit" size="1" class="pulldown">
+						<select name="punit" size="1">
 							<option value="Mile" selected="">Mile</option>
 							<option value="Kilometer">Kilometer</option>
 							<option value="Half Mile">880 yrds</option>
@@ -131,33 +132,42 @@
 				</dd>
 				<dd>
 					<p>To calculate your pace, fill in your time and distance then click here</p>
-					<input type="button" class="pulldown" onclick="myform = document.forms[0]; CalcPace(myform)" value="Calculate Pace" />
+					<input type="button" id="calculate-pace" value="Calculate Pace" />
 				</dd>
 			</dl>
 		</div>
 		<footer>
-			<input type="button" onclick="var myform = document.forms[0]; CalcSplits(myform)" value="Calculate Splits" /> 
-			<input type="button" value="Reset" onclick="document.forms[0].reset()" />
+			<input type="button" id="calculate-splits" value="Calculate Splits" /> 
+			<input type="reset" value="Reset" />
 		</footer>
 	</form>
 </section>
 <footer role="contentinfo">
 	<hr />
-	<p>&copy; Copyleft 2013 <strong><a href="https://twitter.com/alterebro">@alterebro</a></strong></p>
+	<p>2013 <strong><a href="https://twitter.com/alterebro">@alterebro</a></strong></p>
 </footer>
-
 
 <script src="js/zepto.min.js"></script>
 <script src="js/helper.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
-<!-- 
 <script>
+$(function() { 
+
+	var the_form = document.forms[0];
+	$('#calculate-time').click(function() {	CalcTime(the_form); });
+	$('#event-select').change(function() { setDunit(the_form); });
+	$('#calculate-distance').click(function() { CalcDist(the_form); });
+	$('#calculate-pace').click(function() { CalcPace(the_form);	});
+	$('#calculate-splits').click(function() { CalcSplits(the_form); });
+
+});
+/*
 	var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
 	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
 	g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
 	s.parentNode.insertBefore(g,s)}(document,"script"));
+*/
 </script>
--->
 </body>
 </html>

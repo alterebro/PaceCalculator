@@ -16,13 +16,23 @@ var maradist = '26.21875'
 var halfmaradist = '13.109375'
 var shgt = 34 // height of rows in split table to compute height of subwindow
 
+function showError(str) {
+	$('#error').show();
+	$('#error').html(str);
+}
+function hideError() {
+	$('#error').hide();
+	$('#error').html('');
+}
+
 function CalcTime(form){
 // Main routine for Time
 // Validate required data, convert to total secs, do computation, display results
 // Time = Dist * Pace
 	if (!(CheckTime(form))){
-		alert("To calculate Time, enter the Pace and Distance")
+		showError("To calculate Time, enter the Pace and Distance");
 	}else{ //got good data, now process it
+		hideError();
 		dunit = form.dunit.options[form.dunit.selectedIndex].value
 		punit = form.punit.options[form.punit.selectedIndex].value
 		var factor = convUnit(dunit, punit)
@@ -38,8 +48,9 @@ function CalcDist(form){
 // Validate required data, do computation, and display results
 // Dist = Time / Pace
 	if (!(CheckDist(form))){
-		alert("To calculate Dist, enter the Time and Pace")
+		showError("To calculate Distance, enter the Time and Pace");
 	}else{
+		hideError();
 		dunit = form.dunit.options[form.dunit.selectedIndex].value
 		punit = form.punit.options[form.punit.selectedIndex].value
 		var factor = convUnit(punit, dunit)
@@ -53,8 +64,9 @@ function CalcPace(form){
 // Validate required data, do computation, and display results
 // Pace = Time / Dist
 	if (!(CheckPace(form))){
-		alert("To calculate Pace, enter the Time and Distance")
+		showError("To calculate Pace, enter the Time and Distance");
 	}else{
+		hideError();
 		dunit = form.dunit.options[form.dunit.selectedIndex].value
 		punit = form.punit.options[form.punit.selectedIndex].value
 		var factor = convUnit(dunit, punit)
@@ -120,8 +132,9 @@ function CalcSplits(form){
 	var gottime = CheckPace(form)
 	var gotpace = CheckTime(form)
 	if (!(gottime || gotpace)){
-		alert("To calculate Splits, enter the Pace and Distance or Time and Distance")
+		showError("To calculate Splits, enter the Pace and Distance or Time and Distance");
 	}else{
+		hideError();
 	// get dist, pace, and punit
 	// time in total seconds, pace in total seconds
 		if (!(gotpace) && (gottime)){
