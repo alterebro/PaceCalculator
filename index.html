@@ -2,8 +2,9 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>...</title>
-	<meta name="description" content="..." />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Running Pace Calculator</title>
+	<meta name="description" content="Running Pace Calculator" />
 	<meta name="HandheldFriendly" content="True" />
 	<meta name="MobileOptimized" content="320" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,163 +16,145 @@
 	<link rel="shortcut icon" href="img/touch/apple-touch-icon.png" />
 	<meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png" />
 	<meta name="msapplication-TileColor" content="#222222" />
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" />
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:400,700" />
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="css/normalize.css" />
-	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" />
+	<link rel="stylesheet" href="css/armazon.css" />
 </head>
 <body>
 
 <header role="banner">
-	<h1>Pace Calculator</h1>
-	<h2>Calculate your running pace per mile or kilometer</h2>
-	<p>
-		Plan your race pace and splits, figure out how far you ran based on your estimated pace, 
-		or calculate the pace of your last training run. To calculate your time, distance or pace, 
-		fill the other two input fields and click the related button to get your data.
-	</p>
+	<h1>Running Pace Calculator <i class="fa fa-calculator"></i></h1>
 </header>
+
 <section role="main">
+
+	<p>
+		Figure out the average pace for your most recent race, calculate how far you ran based on your estimated pace workout,
+		or plan your training using this calculator to determine the pace for a given distance.
+		<br />
+		Just enter any two variables (pace, time or distance) to calculate the other.
+	</p>
 	<div id="error"></div>
-	<form id="pace-calculator">
-		<div>
-			<dl>
-				<dt><i class="icon-time"></i> <strong>Time</strong></dt>
-				<dd>
-					<span>
-						<label for="thr">Hours</label> 
-						<input type="number" name="thr" maxlength="2" placeholder="Hours" min="0" max="99" />
-					</span>
-					<span>
-						<label for="tmin">Mins</label>
-						<input type="number" name="tmin" maxlength="2" placeholder="Mins" min="0" max="59" />
-					</span>
-					<span>
-						<label for="tsec">Secs</label>
-						<input type="number" name="tsec" maxlength="6" placeholder="Secs" min="0" max="59" />
-					</span>
-				</dd>
-				<dd>
-					<p>To calculate your time, fill in your distance and pace then click here</p>
-					<input type="button" id="calculate-time" value="Calculate Time" />
-				</dd>
 
-				<dt><i class="icon-road"></i> <strong>Distance</strong></dt>
-				<dd>
-					<div>
-						<span class="double-w">
-							<label for="dist">Distance</label>
-							<input type="text" name="dist" maxlength="8" /> 
-						</span>
-						<span>
-							<label for="dunit">Unit</label>
-							<select name="dunit">
-								<option value="Mile">Miles</option>
-								<option value="Kilometer" selected="selected">Kilometers</option>
-								<option value="Meter">Meters</option>
-								<option value="Yard">Yards</option>
-							</select>
-						</span>
-					</div>
-					<div class="separator-or"> &mdash; or &mdash; </div>
-					<div>
-						<select name="event" id="event-select" class="triple-w">
-							<option value="special">Pick Event</option>
-							<option value="Marathon">Marathon</option>
-							<option value="Half-Marathon">Half-Marathon</option>
-							<option value="5K">5K</option>
-							<option value="5M">5M</option>
-							<option value="8K">8K</option>
-							<option value="10K">10K</option>
-							<option value="15K">15K</option>
-							<option value="10M">10M</option>
-							<option value="20K">20K</option>
-							<option value="15M">15M</option>
-							<option value="25K">25K</option>
-							<option value="30K">30K</option>
-							<option value="20M">20M</option>
-						</select>
-					</div>
-				</dd>
-				<dd>
-					<p>To calculate your distance, fill in your time and pace then click here</p>
-					<input type="button" id="calculate-distance" value="Calculate Distance" />
-				</dd>
+	<form id="pace-calculator-form">
+		<dl>
+			<dt><i class="fa fa-clock-o"></i> <strong>Time</strong></dt>
+			<dd class="time-input">
+				<span>
+					<label for="time-hours">Hours</label>
+					<input type="number" name="time-hours" id="time-hours" maxlength="2" placeholder="00" min="0" max="99" />
+				</span>
+				<span>
+					<label for="time-minutes">Mins</label>
+					<input type="number" name="time-minutes" id="time-minutes" maxlength="2" placeholder="00" min="0" max="59" />
+				</span>
+				<span>
+					<label for="time-seconds">Secs</label>
+					<input type="number" name="time-seconds" id="time-seconds" maxlength="6" placeholder="00" min="0" max="59" />
+				</span>
+			</dd>
+			<dd>
+				<p>To calculate your time, fill in your distance and pace then click here</p>
+				<button id="calculate-time">Time <i class="fa fa-chevron-right"></i></button>
+			</dd>
 
-				<dt><i class="icon-bolt"></i> <strong>Pace</strong></dt>
-				<dd>
-					<span class="hidden">
-						<label for="phr">Hours</label>
-						<input type="number" name="phr" maxlength="2" placeholder="Hours" min="0" max="99" />
-					</span>					
-					<span>					
-						<label for="pmin">Mins</label>
-						<input type="number" name="pmin" maxlength="2" placeholder="Mins" min="0" max="59"  />
-					</span>										
+			<dt><i class="fa fa-road"></i> <strong>Distance</strong></dt>
+			<dd class="distance-input">
+				<div>
+					<span class="double-w">
+						<label for="distance-amount">Distance</label>
+						<input type="text" name="distance-amount" id="distance-amount" maxlength="8" placeholder="1500" />
+					</span>
 					<span>
-						<label for="psec">Secs</label>
-						<input type="number" name="psec" maxlength="6" placeholder="Secs" min="0" max="60"  />
-					</span>	
-					<span>
-						<label for="punit">/ Per</label>
-						<select name="punit" size="1">
-							<option value="Mile" selected="">Mile</option>
-							<option value="Kilometer">Kilometer</option>
-							<option value="Half Mile">880 yrds</option>
-							<option value="Quarter Mile">440 yrds</option>
-							<option value="Eigth Mile">220 yrds</option>
-							<option value="1500M">1500 M</option>
-							<option value="800M">800 M</option>
-							<option value="400M">400 M</option>
-							<option value="200M">200 M</option>
-							<option value="Meter">Meter</option>
-							<option value="Yard">Yard</option>
+						<label for="distance-unit">Unit</label>
+						<select name="distance-unit" id="distance-unit">
+							<option value="Mile">Miles</option>
+							<option value="Kilometer" selected="selected">Kilometers</option>
+							<option value="Meter">Meters</option>
+							<option value="Yard">Yards</option>
 						</select>
-					</span>					
-				</dd>
-				<dd>
-					<p>To calculate your pace, fill in your time and distance then click here</p>
-					<input type="button" id="calculate-pace" value="Calculate Pace" />
-				</dd>
-			</dl>
-		</div>
-		<footer>
-			<input type="button" id="calculate-splits" value="Calculate Splits" /> 
-			<input type="reset" value="Reset" />
-		</footer>
-		<div id="splits"></div>
+					</span>
+				</div>
+				<div class="separator-or"> &mdash; or &mdash; </div>
+				<div class="event-input">
+					<select name="event-select" id="event-select" class="triple-w">
+						<option value="false">Pick Event</option>
+						<option value="26.21875-M">Marathon</option>
+						<option value="13.109375-M">Half-Marathon</option>
+						<option value="5-K">5K</option>
+						<option value="5-M">5M</option>
+						<option value="8-K">8K</option>
+						<option value="10-K">10K</option>
+						<option value="15-K">15K</option>
+						<option value="10-M">10M</option>
+						<option value="20-K">20K</option>
+						<option value="15-M">15M</option>
+						<option value="25-K">25K</option>
+						<option value="30-K">30K</option>
+						<option value="20-M">20M</option>
+					</select>
+				</div>
+			</dd>
+			<dd>
+				<p>To calculate your distance, fill in your time and pace then click here</p>
+				<button id="calculate-distance">Distance <i class="fa fa-chevron-right"></i></button>
+			</dd>
+
+
+			<dt><i class="fa fa-bolt"></i> <strong>Pace</strong></dt>
+			<dd class="pace-input">
+				<span>
+					<label for="pace-minutes">Mins</label>
+					<input type="number" name="pace-minutes" id="pace-minutes" maxlength="2" placeholder="00" min="0" max="59"  />
+				</span>
+				<span>
+					<label for="pace-seconds">Secs</label>
+					<input type="number" name="pace-seconds" id="pace-seconds" maxlength="6" placeholder="00" min="0" max="60"  />
+				</span>
+				<span>
+					<label for="pace-unit">/ Per</label>
+					<select name="pace-unit" id="pace-unit">
+						<option value="Mile">Mile</option>
+						<option value="Kilometer" selected="selected">Km.</option>
+						<option value="Half Mile">880 yrds</option>
+						<option value="Quarter Mile">440 yrds</option>
+						<option value="Eigth Mile">220 yrds</option>
+						<option value="1500M">1500 M</option>
+						<option value="800M">800 M</option>
+						<option value="400M">400 M</option>
+						<option value="200M">200 M</option>
+						<option value="Meter">Meter</option>
+						<option value="Yard">Yard</option>
+					</select>
+				</span>
+			</dd>
+			<dd>
+				<p>To calculate your pace, fill in your time and distance then click here</p>
+				<button id="calculate-pace">Pace <i class="fa fa-chevron-right"></i></button>
+			</dd>
+		</dl>
 	</form>
+
 </section>
+
 <footer role="contentinfo">
 	<hr />
-	<p>2013 <strong><a href="https://twitter.com/alterebro">@alterebro</a></strong></p>
+	<p><strong>Running Pace Calculator</strong> &copy; 2013 - 2016 by: <a href="https://twitter.com/alterebro" target="_blank">@alterebro</a></p>
 </footer>
 
-<script src="js/zepto.min.js"></script>
-<script src="js/helper.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+<script type="text/javascript" src="js/pacecalculator.js"></script>
 <script>
-	$(function() { 
+paceCalculator.init();
 
-		var the_form = document.forms[0];
-		$('#calculate-time').click(function() {	CalcTime(the_form); });
-		$('#event-select').change(function() { setDunit(the_form); });
-		$('#calculate-distance').click(function() { CalcDist(the_form); });
-		$('#calculate-pace').click(function() { CalcPace(the_form);	});
-		$('#calculate-splits').click(function() { CalcSplits(the_form); });
+// Google Analytics
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	});
-
-	// Google Analytics
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	ga('create', 'UA-63335-18', 'moro.es');
-	ga('send', 'pageview');
+ga('create', 'UA-63335-18', 'moro.es');
+ga('send', 'pageview');
 </script>
+
 </body>
 </html>
