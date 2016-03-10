@@ -219,7 +219,7 @@ input[type="submit"] {
 	text-transform: uppercase;
 	font-size: 1rem;
 	font-weight: 700;
-	letter-spacing: .25rem;
+	letter-spacing: .1rem;
 	text-align: center;
 	color: @armazon-color-background;
 	background: @armazon-color-primary;
@@ -231,7 +231,7 @@ input[type="submit"] {
 
 	min-width: 24rem;
 	max-width: 100%;
-	padding: 0 3.2rem;
+	padding: 0 1.2rem;
 	height: 3.6rem;
 	line-height: 3.6rem;
 	.transition();
@@ -457,22 +457,7 @@ h4 { font-size: 1.8rem; }
 h5 { font-size: 1.6rem; }
 h6 { font-size: 1.4rem; }
 
-/*
-@media @non-mobile {
-	body > * {
-		font-size: 1.4rem;
-	}
-	h1, h2, h3, h4, h5, h6 {
-		font-weight: 300;
-	}
-	h1 { font-size: 3.2rem; letter-spacing: -.1rem; }
-	h2 { font-size: 2.8rem; letter-spacing: -.1rem; }
-	h3 { font-size: 2.4rem; letter-spacing: -.1rem; }
-	h4 { font-size: 2.0rem; }
-	h5 { font-size: 1.8rem; }
-	h6 { font-size: 1.6rem; }
-}
-*/
+
 
 // --------------------------------------------
 // Spacing
@@ -497,139 +482,12 @@ blockquote, figure, table, dl, form {
     text-shadow: none;
 }
 
-// --------------------------------------------
-// Grid
-.row, .bloque {
-	clear: both;
-	overflow: auto;
-	margin: 0 auto @armazon-margin/2 auto;
-	width: 100%;
-}
-[class^="column-"], [class^="columna-"] {
-	float: left;
-	width: 100%;
-	margin: 0 0 @armazon-margin/2 0;
-	.transition();
-}
-
-// less mixins to calculate the width and margin of the columns grid
-.calculate-width(@columns, @margin, @fraction:1) {
-	@v : (((100 - ((@columns - 1) * @margin)) / @columns) * @fraction) + ((@fraction - 1) * @margin);
-	@value : (floor(@v * 100)) / 100;
-	width: ~'@{value}%';
-}
-.calculate-offset(@columns, @margin, @fraction:1) {
-	@v : ((((100 - ((@columns - 1) * @margin)) / @columns) * @fraction) + ((@fraction - 1) * @margin)) + @margin;
-	@value : (floor(@v * 100)) / 100;
-	margin-left: ~'@{value}%';
-}
-
-@media @desktop {
-
-	[class^="column-"], [class^="columna-"] {
-		margin: 0 ~'@{armazon-columns-margin}%' 0 0;
-	}
-	[class^="column-"]:last-child,
-	[class^="columna-"]:last-child { margin-right: 0; }
-
-	.column-one-sixth,
-	.columna-un-sexto 		{ .calculate-width(6, @armazon-columns-margin, 1); }
-	.column-one-fourth,
-	.columna-un-cuarto 		{ .calculate-width(4, @armazon-columns-margin, 1); }
-	.column-one-third,
-	.columna-un-tercio 		{ .calculate-width(3, @armazon-columns-margin, 1); }
-	.column-one-half,
-	.columna-una-mitad 		{ .calculate-width(2, @armazon-columns-margin, 1); }
-	.column-two-thirds,
-	.columna-dos-tercios 	{ .calculate-width(3, @armazon-columns-margin, 2); }
-	.column-three-fourths,
-	.columna-tres-cuartos 	{ .calculate-width(4, @armazon-columns-margin, 3); }
-	.column-five-sixths,
-	.columna-cinco-sextos 	{ .calculate-width(6, @armazon-columns-margin, 5); }
-
-	.shift-one-sixth,
-	.desplaza-un-sexto 		{ .calculate-offset(6, @armazon-columns-margin, 1); }
-	.shift-one-fourth,
-	.desplaza-un-cuarto 	{ .calculate-offset(4, @armazon-columns-margin, 1); }
-	.shift-one-third,
-	.desplaza-un-tercio	 	{ .calculate-offset(3, @armazon-columns-margin, 1); }
-	.shift-one-half,
-	.desplaza-una-mitad 	{ .calculate-offset(2, @armazon-columns-margin, 1); }
-	.shift-two-thirds,
-	.desplaza-dos-tercios 	{ .calculate-offset(3, @armazon-columns-margin, 2); }
-	.shift-three-fourths,
-	.desplaza-tres-cuartos 	{ .calculate-offset(4, @armazon-columns-margin, 3); }
-	.shift-five-sixths,
-	.desplaza-cinco-sextos 	{ .calculate-offset(6, @armazon-columns-margin, 5); }
-}
 
 
-@media @tablet {
+@media @desktop {}
+@media @tablet {}
+@media @non-mobile {}
 
-	[class^="column-"], [class^="columna-"] {
-		margin: 0 ~'@{armazon-columns-tablet-margin}%' ~'@{armazon-columns-tablet-margin}%' 0;
-	}
-
-	// http://lea.verou.me/2011/01/styling-children-based-on-their-number-with-css3/
-	// -------------------
-	// 6 - six items
-	.row [class^="column-"]:first-child:nth-last-child(6),
-	.row [class^="column-"]:first-child:nth-last-child(6) ~ [class^="column-"],
-	.row [class^="columna-"]:first-child:nth-last-child(6),
-	.row [class^="columna-"]:first-child:nth-last-child(6) ~ [class^="columna-"] {
-		.calculate-width(3, @armazon-columns-tablet-margin, 1);
-		margin-bottom: @armazon-margin/2;
-	}
-	.row [class^="column-"]:first-child:nth-last-child(6) ~ [class^="column-"]:nth-child(3n),
-	.row [class^="columna-"]:first-child:nth-last-child(6) ~ [class^="columna-"]:nth-child(3n) {
-		margin-right: 0;
-	}
-
-	// -------------------
-	// 5 - five items
-	.row [class^="column-"]:first-child:nth-last-child(5),
-	.row [class^="column-"]:first-child:nth-last-child(5) ~ [class^="column-"],
-	.row [class^="columna-"]:first-child:nth-last-child(5),
-	.row [class^="columna-"]:first-child:nth-last-child(5) ~ [class^="columna-"] {
-		.calculate-width(2, @armazon-columns-tablet-margin, 1);
-		margin-bottom: @armazon-margin/2;
-	}
-	.row [class^="column-"]:first-child:nth-last-child(5) ~ [class^="column-"]:nth-child(2n),
-	.row [class^="columna-"]:first-child:nth-last-child(5) ~ [class^="columna-"]:nth-child(2n) {
-		margin-right: 0;
-	}
-	// last element will be 100%
-	.row [class^="column-"]:first-child:nth-last-child(5) ~ [class^="column-"]:nth-child(5),
-	.row [class^="columna-"]:first-child:nth-last-child(5) ~ [class^="columna-"]:nth-child(5) {
-		width: 100%;
-	}
-
-	// -------------------
-	// 4 - four items
-	.row [class^="column-"]:first-child:nth-last-child(4),
-	.row [class^="column-"]:first-child:nth-last-child(4) ~ [class^="column-"],
-	.row [class^="columna-"]:first-child:nth-last-child(4),
-	.row [class^="columna-"]:first-child:nth-last-child(4) ~ [class^="columna-"] {
-		.calculate-width(2, @armazon-columns-tablet-margin, 1);
-		margin-bottom: @armazon-margin/2;
-	}
-	.row [class^="column-"]:first-child:nth-last-child(4) ~ [class^="column-"]:nth-child(2n),
-	.row [class^="columna-"]:first-child:nth-last-child(4) ~ [class^="columna-"]:nth-child(2n) {
-		margin-right: 0;
-	}
-
-	// -------------------
-	// 3 or less : 100%
-	// -------------------
-}
-
-@media @non-mobile {
-	.row:after, .bloque:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-}
 
 // --------------------------------------------
 // Utilities
@@ -689,7 +547,7 @@ header {
         font-weight: 400;
         font-size: 140%;
         padding: 2rem 1rem;
-        margin: 0 0 4rem 0;
+        margin: 0 0 3rem 0;
 
         i {
             color: fade(@armazon-color-background, 50%);
@@ -700,26 +558,30 @@ header {
 }
 
 footer {
-    padding: 3rem 0 0 0;
+    clear: both;
+    padding: 2rem 0 1rem  0;
     hr { display: none; }
     p {
         border-top: dotted lighten(@armazon-color-primary, 25%) 1px;
-        padding: 2rem 1rem;
+        padding: 2rem 0 0 0;
         text-align: center;
     }
 }
 
 
-
-
-
 section[role="main"] {
-    width: 90%;
     max-width: 32rem;
     margin: 0 auto;
+
+    p.intro {
+        width: 90%;
+        margin: 0 auto 1rem auto;
+    }
 }
 
 dl {
+    width: 29rem;
+    margin: 0 auto;
 
     dt {
         clear: both;
@@ -752,51 +614,42 @@ dl {
             font-size: 80%;
             white-space: nowrap;
             overflow: hidden;
-            width: 105px;
+            width: 95px;
             visibility: hidden;
         }
 
         input[type="button"], button {
-            width: 125px;
+            width: 95px;
             min-width: 0;
             padding: 0;
         }
     }
 
-}
-
-
-dd.time-input span {
-    width: 65px;
-}
-dd.distance-input {
-    span {
+    dd.time-input span {
         width: 65px;
     }
-    span:nth-child(1) { width: 65px; }
-    span:nth-child(2) { width: 130px; }
+    dd.distance-input {
+        span {
+            width: 65px;
+        }
+        span:nth-child(1) { width: 65px; }
+        span:nth-child(2) { width: 130px; }
+
+        div.separator-or {
+            clear: both;
+            font-size: 75%;
+            text-transform: uppercase;
+            letter-spacing: .15rem;
+            padding: 0 0 .25rem 0;
+        }
+        div.event-input {
+            margin: 0 .5rem 0 0;
+        }
+    }
+    dd.pace-input span {
+        width: 65px;
+    }
 }
-dd.pace-input span {
-    width: 65px;
-}
-
-
-
-.event-input {
-    margin: 0 .5rem 0 0;
-}
-
-
-
-
-footer {
-    clear: both;
-}
-.hidden {
-    display: none;
-}
-
-
 
 #error {
     display: none;
