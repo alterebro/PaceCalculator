@@ -1,4 +1,4 @@
-/*!	armazon.css v0.3.1 - Lightweight and Supersimple CSS3 Boilerplate Micro Framework built on LESS
+/*!	BASED ON : armazon.css v0.3.1 - Lightweight and Supersimple CSS3 Boilerplate Micro Framework built on LESS
  	(c) 2016 Jorge Moreno ( @alterebro ) - MIT License - https://github.com/alterebro/armazon.css
 */
 
@@ -162,6 +162,7 @@ hr {
 
 // --------------------------------------------
 // Code
+/*
 pre {
 	overflow: auto;
 }
@@ -186,6 +187,7 @@ code, kbd, pre, samp {
 	font-size: 95%;
 	text-shadow: none;
 }
+*/
 
 // --------------------------------------------
 // Forms
@@ -231,7 +233,7 @@ input[type="submit"] {
 
 	min-width: 24rem;
 	max-width: 100%;
-	padding: 0 1.2rem;
+	padding: 0;
 	height: 3.6rem;
 	line-height: 3.6rem;
 	.transition();
@@ -363,6 +365,7 @@ select:focus {
 
 // --------------------------------------------
 // Tables
+/*
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -406,6 +409,7 @@ table {
 		}
 	}
 }
+*/
 
 // --------------------------------------------
 // Lists
@@ -424,6 +428,8 @@ dl {
 	dt dfn {
 		font-style: normal;
 	}
+
+    /*
 	dt:before {
 		content: '\25b6\00a0';
 		display: inline-block;
@@ -432,6 +438,7 @@ dl {
 		padding: 0 .25rem;
 		font-size: .9rem;
 	}
+    */
 	dd {
 		margin: 0;
 		padding: 0;
@@ -484,13 +491,9 @@ blockquote, figure, table, dl, form {
 
 
 
-@media @desktop {}
-@media @tablet {}
-@media @non-mobile {}
-
-
 // --------------------------------------------
 // Utilities
+/*
 .full-width, .ancho-completo { width: 100%; }
 .max-full-width, .ancho-completo-max { max-width: 100%; }
 .pull-right, .empuja-derecha { float: right; }
@@ -500,6 +503,7 @@ blockquote, figure, table, dl, form {
 	&:before, &:after{ content:""; display:table; }
 	&:after{ clear: both; }
 }
+*/
 
 // armazon.css eof
 // --------------------------------------------
@@ -580,7 +584,7 @@ section[role="main"] {
 }
 
 dl {
-    width: 29rem;
+    width: 290px;
     margin: 0 auto;
 
     dt {
@@ -597,7 +601,7 @@ dl {
         span {
             display: block;
             float: left;
-            padding: 0 .5rem 0 0;
+            padding: 0 5px 0 0;
 
             label {
                 font-size: 80%;
@@ -622,6 +626,8 @@ dl {
             width: 95px;
             min-width: 0;
             padding: 0;
+            display: block;
+            float: left;
         }
     }
 
