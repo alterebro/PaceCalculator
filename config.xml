@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.alterebro.pacecalculator"
-        version   = "0.0.1">
+        version   = "0.0.2">
 
     <name>Running Pace Calculator</name>
 
@@ -24,7 +24,7 @@
     <preference name="permissions"                value="none"/>
 
     <!-- Customize your app and platform with the preference element. -->
-    <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
+    <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
     <preference name="webviewbounce"              value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
@@ -45,6 +45,7 @@
     <!-- Plugins -->
 
     <!-- Core plugins -->
+    <!--
     <gap:plugin name="org.apache.cordova.battery-status" />
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.media-capture" />
@@ -63,6 +64,8 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
+    -->
+    <gap:plugin name="org.apache.cordova.splashscreen" />
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
@@ -70,6 +73,7 @@
         <gap:plugin name="com.phonegap.plugins.barcodescanner" />
     -->
 
+    <icon src="icon.png" />
     <!-- Define app icon for each platform. -->
     <!--
     <icon src="icon.png" />
@@ -88,6 +92,7 @@
     <icon src="res/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />
     -->
 
+    <splash src="splash.png" />
     <!-- Define app splash screen for each platform. -->
     <!--
     <gap:splash src="res/screen/android/screen-ldpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
@@ -103,11 +108,12 @@
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg"      gap:platform="winphone" />
     -->
 
+
+    <!--
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
     <string>100</string>
     </gap:config-file>
 
-    <!--
         Define access to external domains.
 
         <access />            - a blank access tag denies access to all external resources.
@@ -133,9 +139,12 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
+    <!--
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    -->
+    <platform name="winphone" />
 
 </widget>
