@@ -63,11 +63,10 @@
 <section role="main">
 
 	<p class="intro">
-		 <i class="fa fa-fw fa-calculator"></i>
 		Figure out the average pace for your most recent race, calculate how far you ran based on your estimated pace workout,
 		or plan your training using this calculator to determine the pace for a given distance.
 		<br />
-		Just enter any two variables (pace, time or distance) to calculate the other.
+		Just enter any two of the three variable fields (pace, time, distance) and press the button of the other one to calculate the value.
 	</p>
 
 	<form id="pace-calculator-form">
@@ -76,15 +75,15 @@
 			<dd class="time-input">
 				<span>
 					<label for="time-hours">Hours</label>
-					<input type="number" name="time-hours" id="time-hours" maxlength="2" placeholder="hh" min="0" max="99" />
+					<input type="number" name="time-hours" id="time-hours" maxlength="2" placeholder="hh" step="1" min="0" max="99" />
 				</span>
 				<span>
 					<label for="time-minutes">Mins</label>
-					<input type="number" name="time-minutes" id="time-minutes" maxlength="2" placeholder="mm" min="0" max="59" />
+					<input type="number" name="time-minutes" id="time-minutes" maxlength="2" placeholder="mm" step="1" min="0" max="59" />
 				</span>
 				<span>
 					<label for="time-seconds">Secs</label>
-					<input type="number" name="time-seconds" id="time-seconds" maxlength="6" placeholder="ss" min="0" max="59" />
+					<input type="number" name="time-seconds" id="time-seconds" maxlength="6" placeholder="ss" step="1" min="0" max="59" />
 				</span>
 			</dd>
 			<dd>
@@ -97,7 +96,7 @@
 				<div>
 					<span class="double-w">
 						<label for="distance-amount">Distance</label>
-						<input type="text" name="distance-amount" id="distance-amount" maxlength="8" />
+						<input type="number" name="distance-amount" id="distance-amount" maxlength="8" step="any" min="0" />
 					</span>
 					<span>
 						<label for="distance-unit">Unit</label>
@@ -186,10 +185,27 @@
 	</div>
 </div>
 
-
 <footer role="contentinfo">
 	<hr />
-	<p><strong>Running Pace Calculator</strong> &copy; 2013-2016. <a href="https://twitter.com/alterebro" target="_blank">@alterebro</a></p>
+	<p><strong>Running Pace Calculator</strong> &copy; 2013-2016. By : <a href="https://twitter.com/alterebro" target="_blank">@alterebro</a></p>
+	<ul class="social-sharing">
+		<li>Share it! : </li>
+		<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpacecalculator.moro.es&amp;title=Running%20Pace%20Calculator"
+			onclick="window.open(this.href, this.className, 'width=550, height=440'); return false;"
+			target="_blank"
+			class="facebook"
+			title="Share on FaceBook"><i class="fa fa-facebook"></i><span>FaceBook</span></a></li>
+		<li><a href="https://twitter.com/intent/tweet?text=Running%20Pace%20Calculator&amp;url=http%3A%2F%2Fpacecalculator.moro.es&amp;hashtags=running&amp;via=alterebro"
+			onclick="window.open(this.href, this.className, 'width=550, height=440'); return false;"
+			target="_blank"
+			class="twitter"
+			title="Share on Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a></li></li>
+		<li><a href="https://plus.google.com/share?url=http%3A%2F%2Fpacecalculator.moro.es"
+			onclick="window.open(this.href, this.className, 'width=550, height=440'); return false;"
+			target="_blank"
+			class="googleplus"
+			title="Share on GooglePlus"><i class="fa fa-google-plus"></i><span>Google+</span></a></li>
+	</ul>
 </footer>
 
 
