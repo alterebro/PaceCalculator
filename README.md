@@ -19,6 +19,11 @@ You can get the code by :
 - or [download it](https://github.com/alterebro/PaceCalculator/zipball/gh-pages)
 
 
+## Credits
+
+The background photo is the *[Antimarino Track Field](https://www.flickr.com/photos/daveynin/3657852579/)* taken by **David Fulmer** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
+
+
 ## License
 
 The MIT License (MIT)
