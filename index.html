@@ -69,7 +69,6 @@
 		<br />
 		Just enter any two variables (pace, time or distance) to calculate the other.
 	</p>
-	<div id="error"></div>
 
 	<form id="pace-calculator-form">
 		<dl>
@@ -172,10 +171,27 @@
 
 </section>
 
+<div id="modal-window">
+	<div class="modal-notice">
+		<p id="modal-error"></p>
+		<dl id="modal-info">
+			<dt><dfn>Time</dfn></dt>
+			<dd id="modal-info-time">--</dd>
+			<dt><dfn>Distance</dfn></dt>
+			<dd id="modal-info-distance">--</dd>
+			<dt><dfn>Pace</dfn></dt>
+			<dd id="modal-info-pace">--</dd>
+		</dl>
+		<p><button id="modal-alright">Ok</button></p>
+	</div>
+</div>
+
+
 <footer role="contentinfo">
 	<hr />
 	<p><strong>Running Pace Calculator</strong> &copy; 2013-2016. <a href="https://twitter.com/alterebro" target="_blank">@alterebro</a></p>
 </footer>
+
 
 <script type="text/javascript" src="js/pacecalculator.min.js"></script>
 <script>

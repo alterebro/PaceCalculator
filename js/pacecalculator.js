@@ -1,39 +1,67 @@
 var paceCalculator = (function () {
+
     'use strict';
-    var error = {
-        show : function(msg) {
-            document.querySelector('#error').innerHTML = msg;
-            document.querySelector('#error').style.display = 'block';
+
+    var modal = {
+        open : function(type, message) {
+
+            document.querySelector('#modal-window').style.display = 'block';
+            document.querySelector('#modal-info').style.display = 'none';
+            document.querySelector('#modal-error').style.display = 'none';
+
+            switch (type) {
+                case 'info':
+                    var t = seconds_to_hhmmss( _get.time() );
+                    var d = +(Math.round(_get.distance() + "e+2")  + "e-2");
+                    var d_unit = document.querySelector('#distance-unit option:checked');
+                    var p = seconds_to_hhmmss( _get.pace() );
+                    var p_unit = document.querySelector('#pace-unit option:checked');
+
+                    document.querySelector('#modal-info-time').innerHTML = t.h + 'h ' + t.m + '′ ' + t.s + '″';
+                    document.querySelector('#modal-info-distance').innerHTML = d + ' ' + (d_unit.textContent || d_unit.innerText);
+                    document.querySelector('#modal-info-pace').innerHTML = p.m + '′ ' + p.s + '″ / ' + (p_unit.textContent || p_unit.innerText);
+
+                    document.querySelector('#modal-info').style.display = 'block';
+                    break;
+
+                case 'error':
+                    document.querySelector('#modal-error').innerHTML = message;
+                    document.querySelector('#modal-error').style.display = 'block';
+                    break;
+
+                default:
+                    this.close();
+            }
         },
-        hide : function() {
-            document.querySelector('#error').style.display = 'none';
-            document.querySelector('#error').innerHTML = '';
+        close : function() {
+            document.querySelector('#modal-window').style.display = 'none';
         }
     }
 
     var calculate = {
         time : function() {
-            if ( !_check.time() ) { error.show('ERROR : To calculate Time, enter the Pace and Distance'); }
+            if ( !_check.time() ) { modal.open('error', 'To calculate Time, enter the Pace and Distance'); }
             else {
-                error.hide();
                 var time = seconds_to_hhmmss( _get.distance() * _get.pace() * _get.factor() );
                 document.querySelector('#time-hours').value = time['h'];
                 document.querySelector('#time-minutes').value = time['m'];
                 document.querySelector('#time-seconds').value = time['s'];
+
+                modal.open('info');
             }
         },
         distance : function() {
-            if ( !_check.distance() ) { error.show('ERROR : To calculate Distance, enter the Time and Pace'); }
+            if ( !_check.distance() ) { modal.open('error', 'To calculate Distance, enter the Time and Pace'); }
             else {
-                error.hide();
                 var distance = _get.time() / ( _get.pace() / _get.factor(true) );
                 document.querySelector('#distance-amount').value = distance.toFixed(4);
+
+                modal.open('info');
             }
         },
         pace : function() {
-            if ( !_check.pace() ) { error.show('ERROR : To calculate Pace, enter the Time and Distance'); }
+            if ( !_check.pace() ) { modal.open('error', 'To calculate Pace, enter the Time and Distance'); }
             else {
-                error.hide();
                 var pace_sec = ( _get.time() / _get.distance() ) / _get.factor();
                 var pace = seconds_to_hhmmss( parseInt(pace_sec) );
 
@@ -43,6 +71,8 @@ var paceCalculator = (function () {
                 }
                 document.querySelector('#pace-minutes').value = pace['m'];
                 document.querySelector('#pace-seconds').value = pace['s'];
+
+                modal.open('info');
             }
         },
         splits : function() {}
@@ -211,6 +241,11 @@ var paceCalculator = (function () {
             document.querySelector('#calculate-time').onclick = function(e) { calculate.time(); e.preventDefault(); this.blur(); };
             document.querySelector('#calculate-distance').onclick = function(e) { calculate.distance(); e.preventDefault(); this.blur(); };
             document.querySelector('#calculate-pace').onclick = function(e) { calculate.pace(); e.preventDefault(); }
+
+            document.querySelector('#modal-alright').onclick = function() {
+                modal.close();
+            }
+
         }
     };
 
