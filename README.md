@@ -1,16 +1,25 @@
-# Pace Calculator
+# Running Pace Calculator
 
-This is a work under construction...
-- Progress can be seen here : http://alterebro.github.io/PaceCalculator/
-- .apk builds can be found here : https://build.phonegap.com/apps/602249/
+**JavaScript / HTML5 Hybrid Mobile Web App.**
 
-## Quick start
-
-Clone the git repo - `git clone git://github.com/alterebro/PaceCalculator.git` -
-or [download it](https://github.com/alterebro/PaceCalculator/zipball/gh-pages)
+Figure out the average pace for your most recent race, calculate how far you ran based on your estimated pace workout, or plan your training using this calculator to determine the pace for a given distance.
 
 
-## LICENSE
+## App
+
+- Website : http://alterebro.github.io/PaceCalculator/
+- .apk builds : https://build.phonegap.com/apps/602249/
+
+
+## Code
+
+You can get the code by :
+
+- Cloning the git repo  `git clone git://github.com/alterebro/PaceCalculator.git`
+- or [download it](https://github.com/alterebro/PaceCalculator/zipball/gh-pages)
+
+
+## License
 
 The MIT License (MIT)
 
