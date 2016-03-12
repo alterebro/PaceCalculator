@@ -7,7 +7,7 @@ Figure out the average pace for your most recent race, calculate how far you ran
 
 ## App
 
-- Website : http://alterebro.github.io/PaceCalculator/
+- Website : http://pacecalculator.moro.es/
 - .apk builds : https://build.phonegap.com/apps/602249/
 
 
