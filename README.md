@@ -4,11 +4,16 @@
 
 Figure out the average pace for your most recent race, calculate how far you ran based on your estimated pace workout, or plan your training using this calculator to determine the pace for a given distance.
 
+#### Android App :
+
+<a href="https://play.google.com/store/apps/details?id=com.alterebro.pacecalculator&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-AC-global-none-all-co-pr-py-PartBadges-Oct1515-1"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png" width="200" /></a>
+
 
 ## App
 
-- Website : http://pacecalculator.moro.es/
-- .apk builds : https://build.phonegap.com/apps/602249/
+- **Website / Web App : http://pacecalculator.moro.es/**
+- Play Store / Android App : https://play.google.com/store/apps/details?id=com.alterebro.pacecalculator
+- apk builds / PhoneGap Build : https://build.phonegap.com/apps/602249/
 
 
 ## Code
