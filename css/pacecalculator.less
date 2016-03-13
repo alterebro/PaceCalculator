@@ -4,7 +4,7 @@
 
 // --------------------------------------------
 // Variables @less
-@armazon-mobile-breakpoint 		: 580;		// width to filter mobile devices
+@armazon-mobile-breakpoint 		: 480;		// width to filter mobile devices
 @armazon-desktop-breakpoint 	: 960; 		// width to fire desktop layout filtering
 
 @armazon-margin 				: 3.6rem; 	// Global margin
@@ -49,6 +49,7 @@ body {
 }
 *, *:before, *:after {
 	box-sizing: inherit;
+    .transition();
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
@@ -67,7 +68,7 @@ a:active, a:hover {
 	border-bottom: solid @armazon-color-primary 1px;
 }
 a, a * {
-	.transition();
+//	.transition();
 }
 
 b, strong {
@@ -93,8 +94,6 @@ hr {
 	border: none;
 	border-top: dotted lighten(@armazon-color-neutral, 20%) 1px;
 }
-
-
 
 button,
 input,
@@ -137,7 +136,7 @@ input[type="submit"] {
 	padding: 0;
 	height: 3.6rem;
 	line-height: 3.6rem;
-	.transition();
+//	.transition();
 }
 button:hover, button:focus,
 html input[type="button"]:hover, html input[type="button"]:focus,
@@ -215,7 +214,7 @@ select {
 	width: 100%;
 	max-width: 30rem;
 	height: 3.6rem;
-	.transition();
+//	.transition();
 }
 select {
 	border: none;
@@ -320,13 +319,6 @@ dl {
 	}
 }
 
-// --------------------------------------------
-// Typography
-body > * {
-	font-size: 1.3rem;
-	font-weight: 300;
-	text-shadow: 0 1px 0 #fff;
-}
 
 // --------------------------------------------
 // Spacing
@@ -386,7 +378,12 @@ body {
 body > * {
     font-family: 'Roboto';
     font-weight: 300;
+    font-size: 1.3rem;
+	text-shadow: 0 1px 0 #fff;
 }
+
+
+
 
 header {
     background: darken(@armazon-color-primary, 3%);
@@ -420,7 +417,7 @@ footer {
     hr { display: none; }
     p {
         border-top: dotted lighten(@armazon-color-primary, 25%) 1px;
-        padding: 2rem 0 0 0;
+        padding: 20px 20px 0 20px;
         margin: 0 0 5px 0;
         text-align: center;
     }
@@ -456,7 +453,12 @@ section[role="main"] {
         padding: 0 25px;
         margin: 0 auto 10px auto;
         text-align: justify;
+
+        @media @non-mobile {
+            text-align: left;
+        }
     }
+
 
     dl {
         width: 290px;
@@ -466,8 +468,8 @@ section[role="main"] {
         dt {
             clear: both;
             border-bottom: dotted @armazon-color-primary 1px;
-            line-height: 3rem;
-            padding: .5rem 0 0 0;
+            line-height: 30px;
+            padding: 5px 0 0 0;
             i {
                 color: @armazon-color-primary;
             }
@@ -484,16 +486,16 @@ section[role="main"] {
 
                 label {
                     font-size: 80%;
-                    line-height: 2rem;
+                    line-height: 20px;
                     display: block;
                     padding: .5rem 0 0 0;
                 }
             }
 
             p {
-                line-height: 2rem;
+                line-height: 20px;
                 margin: 0;
-                padding: .5rem 0 0 0;
+                padding: 5px 0 0 0;
                 font-size: 80%;
                 white-space: nowrap;
                 overflow: hidden;
@@ -510,13 +512,12 @@ section[role="main"] {
             }
         }
 
-        dd.time-input span {
+        dd.time-input span,
+        dd.pace-input span,
+        dd.distance-input span {
             width: 65px;
         }
         dd.distance-input {
-            span {
-                width: 65px;
-            }
             span:nth-child(1) { width: 65px; }
             span:nth-child(2) { width: 130px; }
 
@@ -531,11 +532,34 @@ section[role="main"] {
                 margin: 0 .5rem 0 0;
             }
         }
-        dd.pace-input span {
-            width: 65px;
-        }
-    }
 
+        // DL
+        @media @non-mobile {
+            font-size: 1.5rem;
+            width: 420px;
+
+            dd {
+                p,
+                input[type="button"], button {
+                    width: 195px;
+                }
+                button:before {
+                    content: 'calculate ';
+                }
+            }
+            dd.time-input span,
+            dd.pace-input span,
+            dd.distance-input span {
+                width: 75px;
+            }
+            dd.distance-input {
+                span:nth-child(1) { width: 75px; }
+                span:nth-child(2) { width: 150px; }
+            }
+
+        }
+
+    }
 }
 
 
