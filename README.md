@@ -21,7 +21,8 @@ You can get the code by :
 
 ## Credits
 
-The background photo is the *[Antimarino Track Field](https://www.flickr.com/photos/daveynin/3657852579/)* taken by **David Fulmer** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
+- Design and development by **Jorge Moreno** aka *[moro](http://moro.es)* ( [@alterebro](https://twitter.com/alterebro) )
+- Background's app picture : *[Antimarino Track Field](https://www.flickr.com/photos/daveynin/3657852579/)* by **David Fulmer** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
 
 
 ## License

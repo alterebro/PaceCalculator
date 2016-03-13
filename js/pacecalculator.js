@@ -2,10 +2,29 @@ var paceCalculator = (function () {
 
     'use strict';
 
+    // Utils
+    function addclass(el, classname) {
+    	if (el.classList) {
+    		el.classList.add(classname);
+    	} else {
+    		el.className += ' ' + classname;
+    	}
+    }
+    function removeclass(el, classname) {
+    	if (el.classList) {
+    		el.classList.remove(classname);
+    	} else {
+    		el.className = el.className.replace(new RegExp('(^|\\b)' + classname.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    	}
+    }
+
     var modal = {
         open : function(type, message) {
 
-            document.querySelector('#modal-window').style.display = 'block';
+            addclass(
+                document.querySelector('#modal-window'),
+                'open'
+            );
             document.querySelector('#modal-info').style.display = 'none';
             document.querySelector('#modal-error').style.display = 'none';
 
@@ -34,7 +53,10 @@ var paceCalculator = (function () {
             }
         },
         close : function() {
-            document.querySelector('#modal-window').style.display = 'none';
+            removeclass(
+                document.querySelector('#modal-window'),
+                'open'
+            );
         }
     }
 
