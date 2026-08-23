@@ -11,7 +11,7 @@ Figure out the average pace for your most recent race, calculate how far you ran
 
 ## App
 
-- **Website / Web App : http://pacecalculator.moro.es/**
+- **Website / Web App : https://moro.es/pacecalculator**
 - Play Store / Android App : https://play.google.com/store/apps/details?id=com.alterebro.pacecalculator
 - apk builds / PhoneGap Build : https://build.phonegap.com/apps/602249/
 
@@ -26,7 +26,7 @@ You can get the code by :
 
 ## Credits
 
-- Design and development by **Jorge Moreno** aka *[moro](http://moro.es)* ( [@alterebro](https://twitter.com/alterebro) )
+- Design and development by **Jorge Moreno** aka *[moro](https://moro.es)* ( [@alterebro](https://alterebro.com) )
 - Background's app picture is an adaption of the original work : *[Antimarino Track Field](https://www.flickr.com/photos/daveynin/3657852579/)* by **David Fulmer** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
 
 
